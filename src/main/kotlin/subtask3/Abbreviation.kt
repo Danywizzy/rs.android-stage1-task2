@@ -10,7 +10,7 @@ class Abbreviation {
         var containsUppercase = false
         for (k in 1..a.length) {
             val i = k - 1
-            if (a[i].toInt() <= 90 && a[i].toInt() >= 65 || containsUppercase) {
+            if (a[i].toInt() in 65..90 || containsUppercase) {
                 containsUppercase = true
                 isValid[k][0] = false
             } else isValid[k][0] = true
@@ -26,7 +26,7 @@ class Abbreviation {
                 } else if (a[i].toInt() - 32 == b[j].toInt()) {
                     isValid[k][l] = isValid[k - 1][l - 1] || isValid[k - 1][l]
                     continue
-                } else if (a[i].toInt() <= 90 && a[i].toInt() >= 65) {
+                } else if (a[i].toInt() in 65..90) {
                     isValid[k][l] = false
                     continue
                 } else {
